@@ -15,6 +15,8 @@ public class App {
         char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', +
                 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
+        int numberOfGuessesLeft = 9;
+
 
         // selecting random word from words array.
         Random random = new Random();
@@ -23,7 +25,7 @@ public class App {
         System.out.println(word);
 
         // get user input char and check if letter is in word
-        for (int i = 0; i < 9; i++) {
+        while(numberOfGuessesLeft > 0) {
             System.out.println("Guess a character >  ");
             Scanner scanner = new Scanner(System.in);
             char letter = scanner.next().charAt(0);
@@ -31,22 +33,20 @@ public class App {
             // find if letter(char) is in word(String)
             if (word.contains("" + letter)) {
                 System.out.println("The word does contain " + letter);
-                // code for removing letter from alphabet here
-                // code for removing letter(s) from word here
-                //  i--;
+                //removeLetterFromAlphabet();
+                // removeLetterFromWord();
             } else {
                 System.out.println("The word does not contain " + letter);
-                // code for removing letter from alphabet
+                //removeLetterFromAlphabet();
+                numberOfGuessesLeft = numberOfGuessesLeft -1;
+                // draw piece of hangman
             }
-        }
 
+        }
 
         //  String[] stickman = {"   0_______", " __|__    /'\'", "   |     /  '\'", "  / '\'   /    '\'"};
-        int[] stickmanTest = {1, 2, 3, 4, 5, 6, 7};
 
-        for (int i = 0; i < stickmanTest.length; i++) {
-            System.out.println(stickmanTest[i]);
-        }
+
     }
 }
 
